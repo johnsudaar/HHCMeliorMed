@@ -35,7 +35,7 @@ var urlLast = "http://localhost/index.php/Chat/lastMe/";
 function checkLast() {
 	$.getJSON(urlLast, function(data) {
 		if(data[0].lmess != lastId)
-			window.open("http://localhost/index.php/Chat/with/"+data[0].uid,"", "width=500, height=500");		}
+			window.open("http://localhost/index.php/Chat/with/"+data[0].uid,"", "width=500, height=500");
 	});
 }
 
