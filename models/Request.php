@@ -38,6 +38,17 @@ class Request{
 		return $data;
 	}
 
+	public function getById($id){
+		$driver = DBDriver::get()->getDriver();
+		$query  = $driver->prepare("SELECT * FROM request WHERE id=".$id);
+		$query->execute();
+		if($row = $query->fetch()){
+			return new Request($row["id"],$row["idUser"],$row["titre"],$row["message"],$row["type"]);
+		}else{
+			return NULL;
+		}
+	}
+
 	public static function getNextId(){
 		$driver = DBDriver::get()->getDriver();
 		$query  = $driver->prepare("SELECT MAX( id ) FROM request");
