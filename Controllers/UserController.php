@@ -27,9 +27,9 @@ class UserController{
 		render("user_info",$data);
 	}
 
-	function profil($data){
+	function profile($data){
 		if($data[0]){
-			$user = User::getUserById($data[0]);
+			$user = (array) User::getUserById($data[0]);
 			$nbResolutions = Reply::countResolutionsByIdUser($data[0]);
 			$user['nbResolution'] = $nbResolutions;
 			render('user_profile', $user);

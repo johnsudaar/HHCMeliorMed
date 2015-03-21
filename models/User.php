@@ -12,6 +12,7 @@ class User{
 	public $ville;
 	public $adresse;
 	public $photo;
+	public $tags;
 
 	public function __construct($id,$nom,$prenom,$fonction,$pays,$etablissement, $ville, $adresse, $photo, $tags) {
 		$this->id = $id;
@@ -23,6 +24,7 @@ class User{
 		$this->ville = $ville;
 		$this->adresse = $adresse;
 		$this->photo = $photo;
+		$this->tags = $tags;
 	}
 
 	public static function getByName($name){
@@ -30,7 +32,7 @@ class User{
 		$query  = $driver->prepare("SELECT * FROM user WHERE nom = '".$name."'");
 		$query->execute();	
 		if ($row = $query->fetch()) {
-			return new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
+			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
 		}else{
 			throw new Exception("No user found ...");
 		}
@@ -42,8 +44,7 @@ class User{
 		$query->execute();	
 		$data = array();
 		while ($row = $query->fetch()) {
-			$data[$row["id"]]['user'] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
-			$data[$row["id"]]['tags'] = User::getTagsForUser($row["id"]);
+			$data[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
 		}
 		return $data;
 	}
@@ -54,8 +55,7 @@ class User{
 		$row = $query->fetch();
 		$user = null;
 		if($row) {
-				$user['user'] = (array)new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
-				$user['tags'] = User::getTagsForUser($row["id"]);
+				$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
 			}
 			return $user;
 		}
