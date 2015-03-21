@@ -27,7 +27,7 @@ class Request{
 		return Reply::getAllByPost($this->id);
 	}
 
-	public function getAll(){
+	public static function getAll(){
 		$driver = DBDriver::get()->getDriver();
 		$query  = $driver->prepare("SELECT * FROM request ORDER BY id DESC");
 		$query->execute();

@@ -13,9 +13,9 @@ class ChatMessage{
 		$this->message = $message;
 	}
 
-	public static function send($from,$to,$messae){
+	public static function send($from,$to,$message){
 		$db = DBDriver::get()->getDriver();
-		$query = $db->prepare('INSERT INTO chatMessage (sender,dest,message) VALUES ("'.$from.'","'.$to.'","'.$message.'")');
+		$query = $db->prepare('INSERT INTO chatmessage (sender,dest,message) VALUES ("'.$from.'","'.$to.'","'.$message.'")');
 		$query->execute();
 	}
 
