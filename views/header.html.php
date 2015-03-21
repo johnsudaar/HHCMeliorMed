@@ -7,6 +7,7 @@
 		
 		<link rel="stylesheet" href="http://localhost/assets/css/style.css">
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+		<script src="http://localhost/assets/js/jquery.js"></script>
 	</head>
 	<body>
 		<nav id="menu">
@@ -26,7 +27,7 @@
 					<ul>
 						<li><h2>#diabetes</h2></li>
 						<li><h2>#tumer<h2></li>
-							<li><h2>#neurosurgery</li>
+						<li><h2>#neurosurgery</li>
 						<li><h2>#inovation</li>
 					</ul>
 				</nav>
