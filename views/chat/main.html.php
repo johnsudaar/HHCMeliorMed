@@ -20,8 +20,8 @@
 	<script type="text/javascript">
 	var lastId = "<?php echo $data['last_id']; ?>";
 	var idUser = "<?php echo $data['him']->id; ?>";
-	var urlFrom = "localhost/index.php/Chat/from/";
-	var urlSend = "localhost/index.php/Chat/send/"
+	var urlFrom = "http://localhost/index.php/Chat/from/";
+	var urlSend = "http://localhost/index.php/Chat/send/"
 
 	function getMessages() {
 		$.getJSON(urlFrom + idUser + "/" + lastId, function( data ) {
