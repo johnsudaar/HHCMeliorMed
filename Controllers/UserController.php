@@ -30,6 +30,9 @@ class UserController{
 	function profil($data){
 		if($data[0]){
 			$user = User::getUserById($data[0]);
+			$user = (array) $user;
+			$nbResolutions = Reply::countResolutionsByIdUser($data[0]);
+			$user['nbResolution'] = $nbResolutions;
 			render('user_profile', $user);
 		} else {
 			notFound();

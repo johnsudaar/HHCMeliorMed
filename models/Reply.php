@@ -60,6 +60,13 @@ class Reply{
 		$query = $db->prepare('UPDATE reply SET resolu='.$resolu.' WHERE id ='.$this->id);
 		$query->execute();
 	}
+
+	public function countResolutionsByIdUser($idUser) {
+		$query = DBDriver::get()->getDriver()->prepare('SELECT count(*) FROM reply WHERE idUser='.$idUser .' && resolu=1');
+		$query->execute();
+		$row = $query->fetch();
+		return $row[0];
+	}
 }
 
 ?>
