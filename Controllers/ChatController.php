@@ -26,6 +26,29 @@ class ChatController{
 			renderJSON(array(type=>"error",message=>"Lol pas bon ;)"));
 		}
 	}
+
+	public function from($data){
+		if(count($data) == 2 && is_numeric($data[0]) && is_numeric($data[1])){
+			$posts = ChatMessage::getByConv(getUser()->id, $data[0]);
+			$him = User::getUserById($data[0]);
+			$all = array();
+			foreach($posts as $post){
+				if($post->id > $data[1]){
+					$m["message"] = $post->message;
+					if($post->sender == getUser()->id){
+						$m["from"] = getUser()->nom." ".getUser()->prenom;
+					}else{
+						$m["from"] = $him->nom." ".$him->prenom;
+					}
+					$m["id"] = $post->id;
+					$all[] = $m;
+				}
+			}
+			renderJSON($all);
+		}else{
+			renderJSON(array(type=>"error",message=>"LOL NOPE !"));
+		}
+	}
 }
 
 ?>
