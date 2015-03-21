@@ -56,6 +56,10 @@ class Request{
 		$row = $query->fetch();
 		return $row[0]+1;
 	}
+
+	public static function getAllByTags($data) {
+		$query = $DBDriver::get()->getDriver()->prepare("SELECT * FROM request r, requestTag rt, tag t WHERE r.id = rt.idRequest AND rt.idTag IN (".implode(',', $data."));
+	}
 }
 
 ?>
