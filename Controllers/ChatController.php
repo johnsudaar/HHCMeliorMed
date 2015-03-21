@@ -21,9 +21,9 @@ class ChatController{
 	public function send(){
 		if(isset($_POST['to']) && isset($_POST['message']) && is_numeric($_POST['to']) && ! empty($_POST['message'])){
 			ChatMessage::send(getUser()->id,$_POST['to'],$_POST['message']);
-			renderJSON(array(type=>"success",message=>"Isok"));
+			renderJSON(array("type"=>"success","message"=>"Isok"));
 		}else{
-			renderJSON(array(type=>"error",message=>"Lol pas bon ;)"));
+			renderJSON(array("type"=>"error","message"=>"Lol pas bon ;)"));
 		}
 	}
 
