@@ -47,11 +47,14 @@ class UserController{
 		$data = array();
 
 		foreach($users as $user){
-			$cur["nom"] = $user->nom;
-			$cur["prenom"] = $user->prenom;
-			$cur["pays"] = $user->pays;
-			$cur["fonct"] = $user->fonction;
-			$data[] = $cur;
+			if($user->id != getUser()->id){
+				$cur["id"] = $user->id;
+				$cur["nom"] = $user->nom;
+				$cur["prenom"] = $user->prenom;
+				$cur["pays"] = $user->pays;
+				$cur["fonct"] = $user->fonction;
+				$data[] = $cur;
+			}
 		}
 		renderJSON($data);
 	}
