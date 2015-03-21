@@ -8,7 +8,7 @@ class ChatMessage{
 
 	public function __construct($id,$sender,$dest,$message){
 		$this->id = $id;
-		$this->sender = $ender;
+		$this->sender = $sender;
 		$this->dest = $dest;
 		$this->message = $message;
 	}
