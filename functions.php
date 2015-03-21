@@ -1,8 +1,10 @@
 <?php
-function render($view, $data=Array()){
-	include "views/header.html.php";
+function render($view, $data=Array(), $template = true){
+	if($template)
+		include "views/header.html.php";
 	include	"views/".$view.".html.php";
-	include "views/footer.html.php";
+	if($template)
+		include "views/footer.html.php";
 }
 
 function renderJSON($data){
