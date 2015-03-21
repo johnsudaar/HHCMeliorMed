@@ -49,6 +49,16 @@ class User{
 		}
 		return $data;
 	}
+
+	public static function getUserById($id) {
+		$query = DBDriver::get()->getDriver()->prepare("SELECT * FROM user WHERE id =".$id);
+		$query->execute();
+		$row = $query->fetch();
+		$user = null;
+		if($row)
+			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"],$row["tags"]);
+		return $user;
+	}
 }
 
 ?>

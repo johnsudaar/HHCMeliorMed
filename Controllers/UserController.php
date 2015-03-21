@@ -26,6 +26,15 @@ class UserController{
 		}
 		render("user_info",$data);
 	}
+
+	function profil($data){
+		if($data[0]){
+			$user = User::getUserById($data[0]);
+			render('user_profile', $user);
+		} else {
+			notFound();
+		}
+	}
 }
 
 ?>
