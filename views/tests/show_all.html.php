@@ -5,7 +5,7 @@
 		<ul>
 		<?php
 		foreach($line->getReply() as $reply){ ?>
-			<li> <?= $reply->message ?> </li>
+			<li> <?= $reply->message ?> <a href="http://localhost/index.php/Message/setResolu/<?= $reply->id ?>">Clique ici </a> </li>
 		<?php } ?>
 		</ul>
 		</li>

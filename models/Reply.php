@@ -45,6 +45,15 @@ class Reply{
 		return $row[0]+1;
 	}
 
+	public static function getById($id) {
+		$driver = DBDriver::get()->getDriver();
+		$query = $driver->prepare('SELECT * FROM reply WHERE id = '.$id);
+		$query->execute();
+		$row = $query->fetch();
+		$reply = new Reply($row["id"], $row["message"], $row["request"], $row["resolu"], $row["idUser"]);
+		return $reply;
+	}
+
 	public function setResolu($resolu) {
 		$this->resolu = true;
 		$db = DBDriver::get()->getDriver();
