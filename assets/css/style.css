@@ -35,17 +35,23 @@ a:hover {
  
 /* Text-level semantics
    ========================================================================== */
-    
+  
+h1 {
+    font-weight: 400;
+    font-size: 1.1em;
+    margin:0.67em 0
+    color:; 
+}  
 h2 {
     font-weight: 300;
     font-size: 1em;
-    margin: 0.67em 0;
+    margin: 0.37em 0;
     color: #6d7070;
 }
  
 h3 {
   font-size: 1em;
-  margin: 0.67em 0;
+  margin: 0.17em 0;
   color: #6d7070;
 }
  
@@ -77,6 +83,7 @@ select {
     height: 1980px;
     background: #47dbe2;
     border-right: 2px solid #5ca0d4;
+    z-index: 10;
 }
  
  
@@ -96,8 +103,9 @@ select {
  
 #main {
     height: 99%;
-    width: 100%;
-    position: absolute;
+    width: 800px;
+    display: inline-block;
+    margin: auto;
 }
 #home {
     background: url('../img/home.png') no-repeat center;
@@ -133,18 +141,31 @@ select {
     margin: 10px 20px 0px auto; 
 }
  
-#searchbar {
-    width: 650px;
-    height: 40px;
-    margin-top: 35px;
-    border: 2px solid #d7dddd;
-    background: rgba(255, 255, 255, .5) url('../img/search.png') no-repeat 98% 50%;
-    background-size: 5%;
-} 
+.search {
+    margin-top: 30px;
+    padding:8px 150px;
+    background:rgba(50, 50, 50, 0.2);
+    border:0px solid #dbdbdb;
+}
+.button {
+    position:relative;
+    padding:7px 0;
+    left:-8px;
+    border:2px solid #2dc6d6;
+    background-color:#2dc6d6;
+    color:#fafafa;
+}
+ 
+.button:hover  {
+    cursor: pointer;
+    color:#2dc6d6;
+    background-color:#fafafa;
+}
  
 #filter {   
     height: 100px;
 }
+ 
 #filter ul li{
     display: inline;
     margin-right: 10px;
@@ -175,7 +196,7 @@ select {
  
 .panneaux {
     width: 650px; 
-    height: 150px;
+    min-height: 150px;
     margin-top: 50px;
     border: 2px solid #d7dddd;
     background: #fff;
@@ -190,6 +211,7 @@ select {
     text-align: center;
     margin: 5px;
 }
+ 
 .panneaux .avatar p {
     margin-top: 70%;
 }
@@ -233,17 +255,6 @@ select {
     cursor: pointer;
 }
  
-.button {
-    vertical-align: middle;
-    display: inline-block;
-    margin-left: 10px;
-    padding: 3px;
-    color: #fff;    
-    cursor: pointer;
-    border: 2px solid #5ca0d4;
-    background: #47dbe2;
-}
- 
 #figcaption .button {
     float: right;
 }
@@ -266,7 +277,15 @@ select {
     background-size: cover;
 }
  
- 
+.individuel {
+    width: 200px;
+    height: 150px;
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    color: rgba(0, 0, 0, .5);
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
