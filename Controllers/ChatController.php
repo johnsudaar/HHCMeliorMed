@@ -18,6 +18,10 @@ class ChatController{
 		}
 	}
 
+	public function lastMe(){
+		renderJSON(array(ChatMessage::last(getUser()->id)));
+	}
+
 	public function send(){
 		if(isset($_POST['to']) && isset($_POST['message']) && is_numeric($_POST['to']) && ! empty($_POST['message'])){
 			ChatMessage::send(getUser()->id,$_POST['to'],$_POST['message']);

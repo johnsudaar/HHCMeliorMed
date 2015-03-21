@@ -13,6 +13,23 @@ class ChatMessage{
 		$this->message = $message;
 	}
 
+	public static function last($user){
+		$db = DBDriver::get()->getDriver();
+		$query = $db->prepare('SELECT * FROM chatmessage WHERE dest='.$user);
+		$query->execute();
+
+		$res["uid"] = -1;
+		$res["lmess"] = -1;
+
+		while($row = $query->fetch()){
+			if($row['id'] > $res['lmess']){
+				$res['uid'] = $row['sender'];
+				$res['lmess'] = $row['id'];
+			}
+		}
+		return $res;
+	}
+
 	public static function send($from,$to,$message){
 		$db = DBDriver::get()->getDriver();
 		$query = $db->prepare('INSERT INTO chatmessage (sender,dest,message) VALUES ("'.$from.'","'.$to.'","'.$message.'")');
