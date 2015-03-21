@@ -23,9 +23,9 @@ class MessageController{
 		if(isset($_POST['request']) && isset($_POST['message']) && !empty($_POST['request']) && !empty($_POST['message'])){
 			$rep = new Reply(Reply::getNextId(),$_POST['message'], $_POST['request'], 0, getUser()->id);
 			$rep->insert();
-			echo "OUIIIIIIIII";
+			redirect("/");
 		}else{
-			echo "NOOOOOOOOON";
+			redirect("index.php/Message/testReply");
 		}
 	}
 
