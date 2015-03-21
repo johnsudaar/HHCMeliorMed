@@ -21,7 +21,7 @@ class ChatMessage{
 
 	public function getByConv($me,$him){
 		$db = DBDriver::get()->getDriver();
-		$query = $db->prepare("SELECT * FROM chatMessage WHERE dest = ".$me." OR (sender=".$me." AND dest=".$him.")");
+		$query = $db->prepare("SELECT * FROM chatmessage WHERE dest = ".$me." OR (sender=".$me." AND dest=".$him.")");
 		$query->execute();
 		$data = array();
 

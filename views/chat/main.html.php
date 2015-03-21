@@ -12,6 +12,7 @@
 		<?php
 		foreach($data['posts'] as $post){ ?>
 			<div id="<?= $post->id ?>">
+				<?= User::getUserById($post->id)->prenom ?> :
 				<?= $post->message ?>
 			</div>
 		<?php } ?>
