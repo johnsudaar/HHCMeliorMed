@@ -44,6 +44,13 @@ class Reply{
 		$row = $query->fetch();
 		return $row[0]+1;
 	}
+
+	public function setResolu($resolu) {
+		$this->resolu = true;
+		$db = DBDriver::get()->getDriver();
+		$query = $db->prepare('UPDATE reply SET resolu='.$resolu.' WHERE id ='.$this->id);
+		$query->execute();
+	}
 }
 
 ?>
