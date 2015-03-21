@@ -33,9 +33,11 @@ class User{
 		$query->execute();	
 		if ($row = $query->fetch()) {
 			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
+
 		}else{
 			throw new Exception("No user found ...");
 		}
+		return $user;
 	}
 
 	public static function getAll(){
@@ -68,6 +70,7 @@ class User{
 			$data[] = $row['libelle'];
 		}
 		return $data;
+
 	}
 }
 
