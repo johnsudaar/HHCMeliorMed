@@ -53,6 +53,10 @@
 		}
 	}
 
+	function scrollToBot(){
+		$('html, body').animate({scrollTop:$(document).height()});
+	}
+
 	$(document).ready(function() {
 		$('#send').click(postMessageClick);
 		$('#text').keyup(postMessage)
