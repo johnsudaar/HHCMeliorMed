@@ -39,6 +39,16 @@ class User{
 		}
 	}
 
+	public static function getAll(){
+		$driver = DBDriver::get()->getDriver();
+		$query  = $driver->prepare("SELECT * FROM user");
+		$query->execute();	
+		$data = array();
+		while ($row = $query->fetch()) {
+			$data[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"],$row["tags"]);
+		}
+		return $data;
+	}
 }
 
 ?>

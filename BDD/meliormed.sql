@@ -129,6 +129,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+CREATE TABLE IF NOT EXISTS `notif` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `dest` int(10) NOT NULL,
+  `reply_id` int(10) NOT NULL,
+  `request_id` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
 -- --------------------------------------------------------
 
 --

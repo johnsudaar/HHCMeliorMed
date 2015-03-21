@@ -12,3 +12,7 @@ INSERT INTO reply(id,message,request,resolu,idUser)
 	VALUES	(1,"Ok thx",1,0,2),
 			(2,"2riz1",1,1,3),
 			(3,"Lol g pa lu",2,1,1);
+
+INSERT INTO notif(id,dest,reply_id,request_id)
+	VALUES	(1,1,0,1),
+			(2,2,0,1);
