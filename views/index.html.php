@@ -34,8 +34,11 @@ var dejaOuvert = false;
 var urlLast = "http://localhost/index.php/Chat/lastMe/";
 function checkLast() {
 	$.getJSON(urlLast, function(data) {
-		if(data[0].lmess != lastId)
+		if(data[0].lmess != lastId && !dejaOuvert){
+			lastId = data[0].uid;
+			dejaOuvert = true;
 			window.open("http://localhost/index.php/Chat/with/"+data[0].uid,"", "width=500, height=500");
+		}
 	});
 }
 

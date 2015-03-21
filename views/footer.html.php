@@ -43,7 +43,7 @@
 					.append(
 						$("<div/>").addClass("picture")
 					).append( $("<div/>").addClass("info").text(data[i].fonct+" "+data[i].nom+" "+data[i].prenom))
-					.click(function(e){console.log(e);window.open("http://localhost/index.php/Chat/with/"+e.currentTarget.id,"", "width=500, height=500");})
+					.click(function(e){dejaOuvert = true; window.open("http://localhost/index.php/Chat/with/"+e.currentTarget.id,"", "width=500, height=500");})
 				);
 			}
 		});
