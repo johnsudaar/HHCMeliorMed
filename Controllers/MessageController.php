@@ -44,5 +44,11 @@ class MessageController{
 	function testReply(){
 		render('tests/form_reply');
 	}
+
+	public function testGetAllForMyTags(){
+		$user = getUser();
+		$messages = Request::getAllByTags($user->tags);
+		render('tests/allByTags', $messages);
+	}
 }
 ?>

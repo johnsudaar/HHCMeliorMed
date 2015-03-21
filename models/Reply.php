@@ -61,7 +61,7 @@ class Reply{
 		$query->execute();
 	}
 
-	public function countResolutionsByIdUser($idUser) {
+	public static function countResolutionsByIdUser($idUser) {
 		$query = DBDriver::get()->getDriver()->prepare('SELECT count(*) FROM reply WHERE idUser='.$idUser .' && resolu=1');
 		$query->execute();
 		$row = $query->fetch();
