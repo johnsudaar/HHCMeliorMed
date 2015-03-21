@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `ville` text NOT NULL,
   `adresse` text NOT NULL,
   `photo` text NOT NULL,
+  `tags` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
