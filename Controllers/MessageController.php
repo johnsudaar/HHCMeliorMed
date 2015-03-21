@@ -7,7 +7,7 @@ class MessageController{
 			$req->insert();
 			redirect("/");
 		}else{
-			redirect("index.php/Message/test");
+			redirect("index.php/Message/testSend");
 		}
 	}
 
@@ -18,6 +18,17 @@ class MessageController{
 	function testGet(){
 		$data['data'] = Request::getAll();
 		render('tests/show_all',$data);
+	}
+
+	function setResolu($data){
+		if($data[0]) {
+			$rep = Reply::getById($data[0]);
+			var_dump($rep);
+			$rep->setResolu(true);
+			redirect("index.php/Message/testGet");
+		} else {
+			redirect("index.php/Message/testGet");
+		}
 	}
 
 	function reply(){
