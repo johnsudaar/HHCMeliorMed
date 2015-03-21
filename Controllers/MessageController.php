@@ -1,4 +1,5 @@
 <?php
+// Data
 class MessageController{
 	function postRequest(){
 		if(isset($_POST['titre']) && isset($_POST['message']) && $_POST['titre'] != "" && $_POST['message'] != ""){
