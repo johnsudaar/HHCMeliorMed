@@ -37,11 +37,11 @@ class Notification{
 	}
 
 	public function isReply(){
-		return $this->reply == 0;
+		return $this->reply != 0;
 	}
 
 	public function isRequest(){
-		return $this->request == 0;
+		return $this->request != 0;
 	}
 
 }

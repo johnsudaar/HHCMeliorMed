@@ -5,6 +5,11 @@ function render($view, $data=Array()){
 	include "views/footer.html.php";
 }
 
+function renderJSON($data){
+	echo(json_encode($data));
+	die();
+}
+
 function notFound(){
 	render("404");
 	die();
