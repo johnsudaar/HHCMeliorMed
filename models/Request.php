@@ -23,6 +23,21 @@ class Request{
 		return $driver->exec($query);
 	}
 
+	public function getReply(){
+		return Reply::getAllByPost($this->id);
+	}
+
+	public function getAll(){
+		$driver = DBDriver::get()->getDriver();
+		$query  = $driver->prepare("SELECT * FROM request");
+		$query->execute();
+		$data   = Array();
+		while($row = $query->fetch()){
+			$data[] = new Request($row["id"],$row["idUser"],$row["titre"],$row["message"],$row["type"]);
+		}
+		return $data;
+	}
+
 	public static function getNextId(){
 		$driver = DBDriver::get()->getDriver();
 		$query  = $driver->prepare("SELECT MAX( id ) FROM request");

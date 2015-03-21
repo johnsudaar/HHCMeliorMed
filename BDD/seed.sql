@@ -7,3 +7,8 @@ INSERT INTO request(id,idUser,titre,message,type)
 	VALUES	(1,1,"Test","Je suis la pour le test","pub"),
 		 	(2,2,"Test2","Je suis aussi la pour le test","ann"),
 		 	(3,3,"Test3","Ah toi aussi ? Moi aussi !","requ");
+
+INSERT INTO reply(id,message,request,resolu,idUser)
+	VALUES	(1,"Ok thx",1,0,2),
+			(2,"2riz1",1,1,3),
+			(3,"Lol g pa lu",2,1,1);

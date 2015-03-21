@@ -10,8 +10,27 @@ class MessageController{
 		}
 	}
 
-	function test(){
+	function testSend(){
 		render('tests/form_request');
+	}
+
+	function testGet(){
+		$data['data'] = Request::getAll();
+		render('tests/show_all',$data);
+	}
+
+	function reply(){
+		if(isset($_POST['request']) && isset($_POST['message']) && !empty($_POST['request']) && !empty($_POST['message'])){
+			$rep = new Reply(Reply::getNextId(),$_POST['message'], $_POST['request'], 0, getUser()->id);
+			$rep->insert();
+			echo "OUIIIIIIIII";
+		}else{
+			echo "NOOOOOOOOON";
+		}
+	}
+
+	function testReply(){
+		render('tests/form_reply');
 	}
 }
 ?>

@@ -66,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `reply` (
   `message` text NOT NULL,
   `request` int(11) NOT NULL,
   `resolu` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
