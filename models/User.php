@@ -12,8 +12,6 @@ class User{
 	public $ville;
 	public $adresse;
 	public $photo;
-	public $in_db;
-	public $tags;
 
 	public function __construct($id,$nom,$prenom,$fonction,$pays,$etablissement, $ville, $adresse, $photo, $tags) {
 		$this->id = $id;
@@ -25,7 +23,6 @@ class User{
 		$this->ville = $ville;
 		$this->adresse = $adresse;
 		$this->photo = $photo;
-		$this->tags = explode(",",$tags);
 	}
 
 	public static function getByName($name){
@@ -33,7 +30,7 @@ class User{
 		$query  = $driver->prepare("SELECT * FROM user WHERE nom = '".$name."'");
 		$query->execute();	
 		if ($row = $query->fetch()) {
-			return new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"],$row["tags"]);
+			return new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
 		}else{
 			throw new Exception("No user found ...");
 		}
@@ -45,7 +42,8 @@ class User{
 		$query->execute();	
 		$data = array();
 		while ($row = $query->fetch()) {
-			$data[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"],$row["tags"]);
+			$data[$row["id"]]['user'] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
+			$data[$row["id"]]['tags'] = User::getTagsForUser($row["id"]);
 		}
 		return $data;
 	}
@@ -55,9 +53,21 @@ class User{
 		$query->execute();
 		$row = $query->fetch();
 		$user = null;
-		if($row)
-			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"],$row["tags"]);
-		return $user;
+		if($row) {
+				$user['user'] = (array)new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"]);
+				$user['tags'] = User::getTagsForUser($row["id"]);
+			}
+			return $user;
+		}
+
+		public static function getTagsForUser($id){
+		$query = DBDriver::get()->getDriver()->prepare("SELECT * FROM userTag uT, tag t WHERE uT.idUser =".$id." && uT.idTag = t.id");
+		$query->execute();
+		$data = array();
+		while($row = $query->fetch()) {
+			$data[] = $row['libelle'];
+		}
+		return $data;
 	}
 }
 
