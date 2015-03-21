@@ -1,0 +1,209 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+  font-family: sans-serif; 
+  -ms-text-size-adjust: 100%; 
+    -webkit-text-size-adjust: 100%; 
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+  background: #e3e8e9;
+}
+
+
+/* Links
+   ========================================================================== */
+
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+
+/* Text-level semantics
+   ========================================================================== */
+   
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+  color: #6d7070;
+}
+
+/* Forms
+   ========================================================================== */
+   
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; 
+  font: inherit; 
+  margin: 0; 
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+   ==========================================================================
+   ========================================================================== */
+
+
+#menu {
+	width: 75px;
+	float: left;
+	
+	height: 100%;
+	background: #47dbe2;
+	position: fixed:
+	border-right: 2px solid #5ca0d4;
+}
+
+#menu ul { 
+	margin-top: 120px;
+}
+
+#menu ul li { 
+	width: 50px;
+	height: 50px;
+	margin: 32px auto;
+	background: #fff;
+	list-style: none;
+}
+
+#menu #id { 
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	margin: 210px auto;
+	background: #fff;
+}
+
+#top {
+	margin-top: 50px;
+	margin-left: 200px;
+	display: inline-block;
+}
+
+#top #logo span {
+	color: #47dbe2;
+}
+
+#searchbar {
+	width: 500px;
+	height: 40px;
+	margin-bottom: 15px;
+	border: 2px solid #d7dddd;
+	background: rgba(255, 255, 255, .5);
+} 
+#filter ul li{
+	display: inline;
+	margin-right: 10px;
+	min-height: 50px;
+	padding: 4px;
+	cursor: pointer;
+	color: rgba(0, 0, 0, .5);	
+	border: 2px solid #d7dddd;
+	background: rgba(255, 255, 255, .5);
+}
+
+#filter ul li:hover {
+	color: #fff;	
+	border: 2px solid #5ca0d4;
+	background: #47dbe2;
+}
+
+#sidebar {
+	width: 265px;
+	float: right;
+	margin-right: 100px;
+}
+
+#tags {
+	width: 100%;
+	height: 200px;
+}
+
+#figcaption {
+	margin-top: 10px;
+}
+	
+form {
+	width: 100%;
+	margin-bottom: 5px;
+	padding-left: 5px;
+	color: rgba(0, 0, 0, .5);
+	border: 2px solid #d7dddd;
+	background: rgba(255, 255, 255, .5);
+}
+
+#title form {
+	height: 40px;
+	line-height: 40px;
+}
+
+#text form {
+	height: 200px;
+	line-height: 40px;
+}
+
+#upload {
+	color: rgba(0, 0, 0, .5);
+	display: inline-block;
+	padding: 3px;	
+	cursor: pointer;
+}
+
+#figcaption .button {
+	float: right;
+	margin-right: 0;
+	padding: 3px;
+	color: #fff;	
+	cursor: pointer;
+	border: 2px solid #5ca0d4;
+	background: #47dbe2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

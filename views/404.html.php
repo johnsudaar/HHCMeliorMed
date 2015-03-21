@@ -1,9 +1,4 @@
-<html>
-	<head>
-		<title> 404 Page not found ... </title>
-	</head>
-	<body>
-		<h1> Ooops ... </h1>
-		<h2> 404 Page Not Found ... </h2>
-	</body>
-</html>
+<center>
+<h1> Oops ... </h1>
+<h2> 404 Not found </h2>
+</center>
