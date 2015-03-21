@@ -13,8 +13,9 @@ class User{
 	public $adresse;
 	public $photo;
 	public $tags;
+	public $connect;
 
-	public function __construct($id,$nom,$prenom,$fonction,$pays,$etablissement, $ville, $adresse, $photo, $tags) {
+	public function __construct($id,$nom,$prenom,$fonction,$pays,$etablissement, $ville, $adresse, $photo, $tags, $connect) {
 		$this->id = $id;
 		$this->nom = $nom;
 		$this->prenom = $prenom;
@@ -25,6 +26,30 @@ class User{
 		$this->adresse = $adresse;
 		$this->photo = $photo;
 		$this->tags = $tags;
+		$this->connect = $connect;
+	}
+
+	public function setConnect(){
+		$driver = DBDriver::get()->getDriver();
+		if($this->connect == 0){
+			$this->connect = 1;
+		}else{
+			$this->connect = 0;
+		}
+		$query = $driver->prepare("UPDATE user SET connect=".$this->connect." WHERE id = ".$this->id);
+		$query->execute();
+
+	}
+
+	public function getConnected(){
+		$driver = DBDriver::get()->getDriver();
+		$query = $driver->prepare("SELECT * FROM user WHERE connect = 1");
+		$query->execute();
+		$users = array();
+		while($row = $query->fetch()){
+			$users[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]), $row['connect']);
+		}
+		return $users;
 	}
 
 	public static function getByName($name){
@@ -32,7 +57,7 @@ class User{
 		$query  = $driver->prepare("SELECT * FROM user WHERE nom = '".$name."'");
 		$query->execute();	
 		if ($row = $query->fetch()) {
-			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
+			$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]), $row['connect']);
 
 		}else{
 			throw new Exception("No user found ...");
@@ -46,7 +71,7 @@ class User{
 		$query->execute();	
 		$data = array();
 		while ($row = $query->fetch()) {
-			$data[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
+			$data[] = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]),$row['connect']);
 		}
 		return $data;
 	}
@@ -57,7 +82,7 @@ class User{
 		$row = $query->fetch();
 		$user = null;
 		if($row) {
-				$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]));
+				$user = new User($row["id"],$row["nom"],$row["prenom"],$row["fonction"],$row["pays"],$row["etablissement"],$row["ville"], $row["adresse"], $row["photo"], User::getTagsForUser($row["id"]),$row['connect']);
 			}
 			return $user;
 		}

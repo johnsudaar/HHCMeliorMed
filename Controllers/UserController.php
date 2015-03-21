@@ -37,6 +37,24 @@ class UserController{
 			notFound();
 		}
 	}
+
+	function connect(){
+		getUser()->setConnect();
+	}
+
+	function connected(){
+		$users = User::getConnected();
+		$data = array();
+
+		foreach($users as $user){
+			$cur["nom"] = $user->nom;
+			$cur["prenom"] = $user->prenom;
+			$cur["pays"] = $user->pays;
+			$cur["fonct"] = $user->fonction;
+			$data[] = $cur;
+		}
+		renderJSON($data);
+	}
 }
 
 ?>

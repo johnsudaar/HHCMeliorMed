@@ -13,7 +13,7 @@
 		
 		<div class="actu">
 		
-			<h1><span>DR <?= User::getUserById($post->idUser)->nom ?> </span> needs your Knowledge,</h1>
+			<h1><span><?= User::getUserById($post->idUser)->fonction ?> <?= User::getUserById($post->idUser)->nom ?> </span> needs your Knowledge,</h1>
 			<h2><?= $post->titre ?></h2>
 			<p><?= $post->message ?></p> 
 		
