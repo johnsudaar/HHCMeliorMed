@@ -24,5 +24,23 @@
 		</div>
 	</div>
 	<?php } ?>
-	
+
 </div>
+
+<script>
+var userId = <?php echo getUser()->id; ?>;
+var lastId = <?php echo ChatMessage::last(getUser()->id)['lmess']; ?>;
+var dejaOuvert = false;
+var urlLast = "http://localhost/index.php/Chat/lastMe/";
+function checkLast() {
+	$.getJSON(urlLast, function(data) {
+		if(data[0].lmess != lastId)
+			window.open("http://localhost/index.php/Chat/with/"+data[0].uid,"", "width=500, height=500");		}
+	});
+}
+
+$(document).ready(function() {
+	setInterval(checkLast, 500);
+})
+
+</script>
