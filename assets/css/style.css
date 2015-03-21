@@ -17,6 +17,7 @@ html {
 body {
   margin: 0;
   background: #e3e8e9;
+  overflow: hidden;
 }
 
 
@@ -64,19 +65,14 @@ select {
    ==========================================================================
    ========================================================================== */
 
-
 #menu {
 	width: 75px;
 	float: left;
-	height: 100%;
+	height: 1980px;
 	background: #47dbe2;
-	position: fixed:
 	border-right: 2px solid #5ca0d4;
 }
 
-#menu ul { 
-	margin-top: 120px;
-}
 
 #menu ul li { 
 	width: 50px;
@@ -88,11 +84,15 @@ select {
 #menu #id { 
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
 	margin: 210px auto 0 auto;
 	background: url('../img/id.png') no-repeat center;
 }
 
+#main {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
 #home {
 	background: url('../img/home.png') no-repeat center;
 			background-size: 70%;
@@ -121,10 +121,15 @@ select {
 	color: #47dbe2;
 }
 
+#tags ul li {
+	display: inline-block;
+	padding: 10px 20px;	
+}
+
 #searchbar {
 	width: 500px;
 	height: 40px;
-	margin-bottom: 15px;
+	margin-top: 15px;
 	border: 2px solid #d7dddd;
 	background: rgba(255, 255, 255, .5);
 } 
@@ -133,7 +138,7 @@ select {
 	display: inline;
 	margin-right: 10px;
 	min-height: 50px;
-	padding: 4px;
+	padding: 4px 6px;
 	cursor: pointer;
 	color: rgba(0, 0, 0, .5);	
 	border: 2px solid #d7dddd;
@@ -149,19 +154,26 @@ select {
 #timeline {
 	margin-left: 250px;
 }
-
-.panneaux .time {
-	font-size: 10pt;
+.time {
 	text-align: right;
-	margin: 5px;
+	margin: 2px;
 }
-
 .panneaux {
 	width: 500px; 
 	height: 150px;
 	margin-top: 50px;
 	border: 2px solid #d7dddd;
 	background: #fff;
+}
+
+.panneaux .avatar {
+	height: 100%;
+	width: 150px;
+	float: left;
+	background: #aae;
+	font-size: 10pt;
+	text-align: center;
+	margin: 5px;
 }
 
 #sidebar {
@@ -218,3 +230,30 @@ textarea {
 #figcaption .button {
 	float: right;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
