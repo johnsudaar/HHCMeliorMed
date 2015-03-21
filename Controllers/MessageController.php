@@ -7,8 +7,10 @@ class MessageController{
 			$titre = $lines[0];
 			array_shift($lines);
 			$message = nl2br(implode("\n",$lines));
-			$req = new Request(Request::getNextId(),getUser()->id,$titre, $message,"requ");
+			$id_request = Request::getNextId();
+			$req = new Request($id_request,getUser()->id,$titre, $message,"requ");
 			$req->insert();
+			Notification::addNotif($id_request, 0);
 			redirect("/");
 		}else{
 			redirect("/");
@@ -37,8 +39,10 @@ class MessageController{
 
 	function reply(){
 		if(isset($_POST['request']) && isset($_POST['message']) && !empty($_POST['request']) && !empty($_POST['message'])){
-			$rep = new Reply(Reply::getNextId(),$_POST['message'], $_POST['request'], 0, getUser()->id);
+			$id_reply = Reply::getNextId();
+			$rep = new Reply($id_reply,$_POST['message'], $_POST['request'], 0, getUser()->id);
 			$rep->insert();
+			Notification::addNotif(0, $id_reply);
 			redirect("/");
 		}else{
 			redirect("index.php/Message/testReply");

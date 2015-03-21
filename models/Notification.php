@@ -5,21 +5,37 @@ class Notification{
 	public $dest;
 	public $reply;
 	public $request;
+	public $libelle;
 
 	public function __construct($id,$dest,$reply,$request){
 		$this->id = $id;
 		$this->dest = $dest;
-		$this->reply = $request;
+		$this->reply = $reply;
+		$this->request = $request;
+		if ($reply == 0) {
+			$this->libelle = "Une question a été postée";
+		}
+		else {
+			$this->libelle = "Vous avez reçu une réponse";
+		}
 	}
 
 	public static function addNotif($request, $reply){
 		$db = DBDriver::get()->getDriver();
 		$users = User::getAll();
-		foreach($users as $user){
-			if($user->id != getUser()->id){
-				$query = $db->prepare("INSERT INTO notif(dest,reply_id,request_id) VALUES (".$user->id.",".$reply.",".$request.")");
-				$query->execute();
+		if ($reply == 0) {
+			foreach($users as $user){
+				if($user->id != getUser()->id){
+					$query = $db->prepare("INSERT INTO notif(dest,reply_id,request_id) VALUES (".$user->id.",".$reply.",".$request.")");
+					$query->execute();
+				}
 			}
+		}
+		else {
+			$r = Reply::getById($reply);
+			$origine = $r->request;
+			$createur = $origine->idUser;
+			$query = $db->prepare("INSERT INTO notif(dest,reply_id,request_id) VALUES (".$createur.",".$reply.",".$request.")");
 		}
 	}
 
@@ -34,6 +50,12 @@ class Notification{
 		}
 
 		return $data;
+	}
+
+	public static function deleteNotif($id) {
+		$db = DBDriver::get()->getDriver();
+		$query = $db->prepare("DELETE FROM notif WHERE id=".$id);
+		$query->execute();
 	}
 
 	public function isReply(){
