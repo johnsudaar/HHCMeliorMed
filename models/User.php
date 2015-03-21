@@ -67,7 +67,7 @@ class User{
 		$query->execute();
 		$data = array();
 		while($row = $query->fetch()) {
-			$data[] = $row['libelle'];
+			$data[$row['id']] = $row['libelle'];
 		}
 		return $data;
 

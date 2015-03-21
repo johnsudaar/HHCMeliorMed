@@ -38,7 +38,7 @@ class Request{
 		return $data;
 	}
 
-	public function getById($id){
+	public static function getById($id){
 		$driver = DBDriver::get()->getDriver();
 		$query  = $driver->prepare("SELECT * FROM request WHERE id=".$id);
 		$query->execute();
@@ -58,7 +58,13 @@ class Request{
 	}
 
 	public static function getAllByTags($data) {
-	//	$query = $DBDriver::get()->getDriver()->prepare("SELECT * FROM request r, requestTag rt, tag t WHERE r.id = rt.idRequest AND rt.idTag IN (".implode(',', $data."));
+		$query = DBDriver::get()->getDriver()->prepare("SELECT * FROM request r, requestTag rt, tag t WHERE r.id = rt.idRequest AND rt.idTag = t.id AND rt.idTag IN (".implode(',', array_keys($data)).")");
+		$query->execute();
+		$values = array();
+		while($row = $query->fetch()){
+			$values[] = new Request($row["id"],$row["idUser"],$row["titre"],$row["message"],$row["type"]);
+		}
+		return $values;
 	}
 }
 
