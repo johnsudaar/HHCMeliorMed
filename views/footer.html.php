@@ -13,7 +13,13 @@
 						<p>Send</p>
 					</button>
 				</div>
+
 			</form>
+		</div>
+		<div class="contact">
+			<div class="picture"></div>
+			<div class="info">Pauline<div>
+		</div>
 	</div>
 </section>
 	
