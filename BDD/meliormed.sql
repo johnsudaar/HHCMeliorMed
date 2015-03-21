@@ -63,7 +63,8 @@ CREATE TABLE IF NOT EXISTS `fileRequest` (
 
 CREATE TABLE IF NOT EXISTS `reply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `message` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `request` int(11) NOT NULL,
   `resolu` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
@@ -79,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `request` (
   `idUser` int(11) NOT NULL,
   `titre` text NOT NULL,
   `message` text NOT NULL,
-  `idReply` int(11) NOT NULL,
+  `type` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
@@ -122,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `etablissement` text NOT NULL,
   `ville` text NOT NULL,
   `adresse` text NOT NULL,
-  `photo` int(11) NOT NULL,
+  `photo` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 

@@ -7,7 +7,7 @@ class DBDriver{
 		$USERNAME = "root";
 		$PASSWORD = "root";
 		$HOST = "127.0.0.1";
-		$DB = "MYDB";
+		$DB = "melio";
 		$this->bdd = new PDO('mysql:host='.$HOST.';dbname='.$DB.';charset=utf8', $USERNAME, $PASSWORD);
 
 	}
@@ -19,7 +19,7 @@ class DBDriver{
 		return self::$_instance;
 	}
 
-	public getDriver(){
+	public function getDriver(){
 		return $this->bdd;
 	}
 }
