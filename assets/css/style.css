@@ -36,8 +36,8 @@ a:hover {
 /* Text-level semantics
    ========================================================================== */
    
-h1 {
-  font-size: 2em;
+h3 {
+  font-size: 1em;
   margin: 0.67em 0;
   color: #6d7070;
 }
@@ -68,7 +68,6 @@ select {
 #menu {
 	width: 75px;
 	float: left;
-	
 	height: 100%;
 	background: #47dbe2;
 	position: fixed:
@@ -83,7 +82,6 @@ select {
 	width: 50px;
 	height: 50px;
 	margin: 32px auto;
-	background: #fff;
 	list-style: none;
 }
 
@@ -91,17 +89,35 @@ select {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-	margin: 210px auto;
-	background: #fff;
+	margin: 210px auto 0 auto;
+	background: url('../img/id.png') no-repeat center;
+}
+
+#home {
+	background: url('../img/home.png') no-repeat center;
+			background-size: 70%;
+}
+
+#case {
+	background: url('../img/case.png') no-repeat center;
+			background-size: 70%;
+}
+
+#event {
+	background: url('../img/event.png') no-repeat center;
+			background-size: 70%;
+}
+
+#conf {
+	background: url('../img/conf.png') no-repeat center;
+			background-size: 70%;
 }
 
 #top {
-	margin-top: 50px;
-	margin-left: 200px;
-	display: inline-block;
-}
+	margin-top: 20px;
+	margin-left: 250px;}
 
-#top #logo span {
+#logo span {
 	color: #47dbe2;
 }
 
@@ -112,6 +128,7 @@ select {
 	border: 2px solid #d7dddd;
 	background: rgba(255, 255, 255, .5);
 } 
+
 #filter ul li{
 	display: inline;
 	margin-right: 10px;
@@ -129,11 +146,36 @@ select {
 	background: #47dbe2;
 }
 
-#sidebar {
-	width: 265px;
-	float: right;
-	margin-right: 100px;
+#timeline {
+	margin-left: 250px;
 }
+
+.panneaux .time {
+	font-size: 10pt;
+	text-align: right;
+	margin: 5px;
+}
+
+.panneaux {
+	width: 500px; 
+	height: 150px;
+	margin-top: 50px;
+	border: 2px solid #d7dddd;
+	background: #fff;
+}
+
+#sidebar {
+	top: 0px;
+	width: 350px;
+	right: 50px;
+	position: absolute;
+}
+
+#sidebar #logo {
+	margin-top: 10px;
+	text-align: right
+}
+
 
 #tags {
 	width: 100%;
@@ -144,23 +186,15 @@ select {
 	margin-top: 10px;
 }
 	
-form {
+textarea {
+	line-height: 40px;
 	width: 100%;
+	height: 250px;
 	margin-bottom: 5px;
 	padding-left: 5px;
 	color: rgba(0, 0, 0, .5);
 	border: 2px solid #d7dddd;
 	background: rgba(255, 255, 255, .5);
-}
-
-#title form {
-	height: 40px;
-	line-height: 40px;
-}
-
-#text form {
-	height: 200px;
-	line-height: 40px;
 }
 
 #upload {
@@ -170,9 +204,10 @@ form {
 	cursor: pointer;
 }
 
-#figcaption .button {
-	float: right;
-	margin-right: 0;
+.button {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: 10px;
 	padding: 3px;
 	color: #fff;	
 	cursor: pointer;
@@ -180,30 +215,6 @@ form {
 	background: #47dbe2;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#figcaption .button {
+	float: right;
+}

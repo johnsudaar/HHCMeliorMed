@@ -2,12 +2,16 @@
 // Data
 class MessageController{
 	function postRequest(){
-		if(isset($_POST['titre']) && isset($_POST['message']) && $_POST['titre'] != "" && $_POST['message'] != ""){
-			$req = new Request(Request::getNextId(),getUser()->id,$_POST['titre'], $_POST['message'],"requ");
+		if(isset($_POST['message']) != "" && $_POST['message'] != ""){
+			$lines = explode("\n", $_POST['message']);
+			$titre = $lines[0];
+			array_shift($lines);
+			$message = nl2br(implode("\n",$lines));
+			$req = new Request(Request::getNextId(),getUser()->id,$titre, $message,"requ");
 			$req->insert();
 			redirect("/");
 		}else{
-			redirect("index.php/Message/testSend");
+			redirect("/");
 		}
 	}
 

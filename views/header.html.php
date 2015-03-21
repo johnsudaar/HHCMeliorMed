@@ -18,7 +18,7 @@
 				<li id="home"></li>
 				<li id="case"></li>
 				<li id="event"></li>
-				<li id="ad"></li>
+				<li id="conf"></li>
 			</ul>
 			
 			<div id="id">
@@ -27,7 +27,6 @@
 		
 		<div id="top">
 			<div id="staticline"></div>
-			<div id="logo"><h1><span>Meliord</span>Med<h1></div>
 			<div id="searchbar"></div>
 			<nav id="filter">
 				<ul>
@@ -37,4 +36,3 @@
 					<li>Events</li>
 				</ul>
 		</div>
-		

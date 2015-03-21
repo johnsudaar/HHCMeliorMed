@@ -29,7 +29,7 @@ class Request{
 
 	public function getAll(){
 		$driver = DBDriver::get()->getDriver();
-		$query  = $driver->prepare("SELECT * FROM request");
+		$query  = $driver->prepare("SELECT * FROM request ORDER BY id DESC");
 		$query->execute();
 		$data   = Array();
 		while($row = $query->fetch()){
@@ -58,7 +58,7 @@ class Request{
 	}
 
 	public static function getAllByTags($data) {
-		$query = $DBDriver::get()->getDriver()->prepare("SELECT * FROM request r, requestTag rt, tag t WHERE r.id = rt.idRequest AND rt.idTag IN (".implode(',', $data."));
+	//	$query = $DBDriver::get()->getDriver()->prepare("SELECT * FROM request r, requestTag rt, tag t WHERE r.id = rt.idRequest AND rt.idTag IN (".implode(',', $data."));
 	}
 }
 
