@@ -17,7 +17,20 @@ class NotificationController{
 			$data[] = $cur;
 		}
 		renderJSON($data);
-	}	
+	}
+
+	public function removeNotif() {
+		if(isset($_POST['id'])){
+			Notification::deleteNotif($_POST['id']);
+			renderJSON(array("type"=>"success","message"=>"Isok"));
+		}
+	}
+
+	public function getInfos() {
+		$user = getUser();
+		$notifications = Notification::getFor($user->id);
+		renderJSON((array) $notifications);
+	}
 }
 
 ?>
