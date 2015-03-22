@@ -24,26 +24,26 @@
 			<ul>
 				<li class="tag"><h3>#Diabetes</h3>
 					<p>Subjects : <span>3</span></p>
-					<p>Membres : <span>10</span></p>
-					<p>Messages : <span>50</span></p>
+					<p>Membres : <span>22</span></p>
+					<p>Messages : <span>7</span></p>
 				</li>
 				
 				<li class="tag"><h3>#Tumer</h3>
-					<p>Subjects : <span>3</span></p>
-					<p>Membres : <span>10</span></p>
-					<p>Messages : <span>50</span></p>
+					<p>Subjects : <span>14</span></p>
+					<p>Membres : <span>59</span></p>
+					<p>Messages : <span>2</span></p>
 				</li>
 				
 				<li class="tag"><h3>#Neurosurgery</h3>
-					<p>Subjects : <span>3</span></p>
-					<p>Membres : <span>10</span></p>
-					<p>Messages : <span>50</span></p>
+					<p>Subjects : <span>18</span></p>
+					<p>Membres : <span>5</span></p>
+					<p>Messages : <span>4</span></p>
 				</li>
 				
 				<li class="tag"><h3>#Innovation</h3>
-					<p>Subjects : <span>3</span></p>
-					<p>Membres : <span>10</span></p>
-					<p>Messages : <span>50</span></p>
+					<p>Subjects : <span>12</span></p>
+					<p>Membres : <span>48</span></p>
+					<p>Messages : <span>5</span></p>
 				</li>
 			</ul>			
 		</nav>

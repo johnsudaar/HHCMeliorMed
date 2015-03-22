@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title> Chat </title>
-	<script src="http://localhost/assets/js/jquery.js"></script>
+<title> Chat </title>
+<script src="http://localhost/assets/js/jquery.js"></script>
+<link rel="stylesheet" href="http://localhost/assets/css/style.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<h1> Chat avec <?= $data['him']->nom ?> <?= $data['him']->prenom ?></h1>
+	<!--<div id="title"> <?= $data['him']->nom ?> <?= $data['him']->prenom ?></div>
 	<section id="messages"> 
 		<?php
 		foreach($data['posts'] as $post){ ?>
@@ -13,9 +16,12 @@
 				<?= $post->message ?>
 			</div>
 		<?php } ?>
-	</section>
-	<input id="text" type="text" name="input"/>
-	<button id="send"> Envoyer </button>
+	</section>-->
+	<section id="messages"></section>
+<div class="fig">
+<input id="text" class="chatext" type="text" name="input"/>
+<button id="send"> Envoyer </button>
+</div>
 </body>
 	<script type="text/javascript">
 	var lastId = "<?php echo $data['last_id']; ?>";
@@ -31,7 +37,7 @@
 					lastId = data[i].id;
 				if(!$('#'+data[i].id).length) {
 					if(data[i].me)
-						$('#messages').append('<div class"you" id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
+						$('#messages').append('<div class="you" id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
 					else
 						$('#messages').append('<div class="me" id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
 				}

@@ -7,7 +7,7 @@
 	
 	<div id="message">
 		<form action="http://localhost/index.php/Message/postRequest" method="POST">
-			<textarea id="text" name="message"></textarea>
+			<textarea id="text" name="message"></textarea><br/>
 			<textarea placeholder="#" id="texttag"></textarea>
 			<input type="hidden" name="request" value="<?=$post->id?>"/>
 			<div id="figcaption">
