@@ -29,8 +29,12 @@
 			for(var i = 0 ; i < data.length ; i ++) {
 				if(parseInt(data[i].id) > parseInt(lastId))
 					lastId = data[i].id;
-				if(!$('#'+data[i].id).length)
-					$('#messages').append('<div id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
+				if(!$('#'+data[i].id).length) {
+					if(data[i].me)
+						$('#messages').append('<div class"you" id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
+					else
+						$('#messages').append('<div class="me" id='+data[i].id+'>'+data[i].from+' : '+data[i].message+'</div>');
+				}
 			}
 		});
 	}
