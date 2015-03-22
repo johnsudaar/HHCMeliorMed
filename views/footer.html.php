@@ -56,6 +56,25 @@
 			});
 		});
 		setInterval(updateUserList,500);
+		console.log($('input'));
+		$('input').each(function() {
+			if($(this).val() == 'Comment' || $(this).val() == 'Close') {
+				$(this).click(changeUrl);
+			}
+		});
 	});
+
+	urlRequest = "http://localhost/index.php/Message/postRequest";
+	urlReply = "http://localhost/index.php/Message/reply";
+	function changeUrl() {
+		$('form').each(function() {
+			if($(this).attr('id') != 'recherche')
+				console.log($(this).attr('action'));
+				if($(this).attr('action') == urlRequest)
+					$(this).get(0).setAttribute('action', urlReply);
+				else
+					$(this).get(0).setAttribute('action', urlRequest);
+		});
+	}
 </script>
 </html>
