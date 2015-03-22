@@ -36,8 +36,9 @@ class Notification{
 		else {
 			$r = Reply::getById($reply);
 			$origine = $r->request;
-			$createur = $origine->idUser;
+			$createur = Request::getById($origine)->idUser;
 			$query = $db->prepare("INSERT INTO notif(dest,reply_id,request_id) VALUES (".$createur.",".$reply.",".$request.")");
+			$query->execute();
 		}
 	}
 

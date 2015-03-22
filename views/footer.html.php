@@ -9,6 +9,7 @@
 		<form action="http://localhost/index.php/Message/postRequest" method="POST">
 			<textarea id="text" name="message"></textarea>
 			<textarea placeholder="#" id="texttag"></textarea>
+			<input type="hidden" name="request" value="<?=$post->id?>"/>
 			<div id="figcaption">
 			<input type="submit" value="Send">
 				<div id="upload">
