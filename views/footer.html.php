@@ -9,7 +9,7 @@
 	
 	<div id="message">
 		<form action="http://localhost/index.php/Message/postRequest" method="POST">
-			<textarea id="text"></textarea>
+			<textarea id="text" name="message"></textarea>
 			<textarea placeholder="#" id="texttag"></textarea>
 			<div id="figcaption">
 			<input type="submit" value="Send">

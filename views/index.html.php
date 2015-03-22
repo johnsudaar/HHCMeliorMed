@@ -37,7 +37,7 @@
   		</div>
   		
   		<div class="popHead">
-  			<img src="img/meningioma.jpg" style="width: 350px">
+  			<img src="http://localhost/assets/img/meningioma.jpg" style="width: 350px">
 	  			<h2>Boy, 4 years old, partial right brachial motor seizures,</h2><p> with progressive evolution in the last 3 months</b>,<br/>  and headache.
 	  			The neurological exam revealed a right<br/>hemiparesis</b>, right  centralfacial palsy</b> and gait disturbance.</b></p><br/> 
 	  			<p>The development was normal</b> and he had no history</b> of trauma<br/> or medical problems.
@@ -51,9 +51,9 @@
 	<div id="discussion">
 	
 		<div class="comments">
-			<img src="img/avatar.png"/>
-			<div class="nomprénom"></div>
-			<div class="msgnotif"></div>
+			<img src="http://localhost/assets/img/profiles/avatar.png"/>
+			<div class="nomprénom">Data</div>
+			<div class="msgnotif">Test Commentaire</div>
 		</div>
 		
 	</div>
