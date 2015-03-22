@@ -10,37 +10,26 @@
 		<script src="http://localhost/assets/js/jquery.js"></script>
 	</head>
 	<body>
-		<nav id="menu">
+	<section id="menu">
+		<div id="id"></div>
+		<nav>
 			<ul>
-				<li id="home"></li>
-				<li id="case"></li>
-				<li id="event"></li>
-				<li id="conf"></li>
+				<li><span>#</span><h3>Diabetes</h3></li>
+				<li><span>#</span><h3>Tumer</h3></li>
+				<li><span>#</span><h3>Neurosurgery</h3></li>
+				<li><span>#</span><h3>Inovation</h3></li>
 			</ul>
-			<div id="id"></div>
 		</nav>
-		
+	</section>
 	<section id="main">
-		<div id="top">
-			<div id="tags">
-				<nav>
-					<ul>
-						<li><h2>#diabetes</h2></li>
-						<li><h2>#tumer<h2></li>
-						<li><h2>#neurosurgery</li>
-						<li><h2>#inovation</li>
-					</ul>
-				</nav>
-			</div>
-			
-			<nav id="filter">
-				<ul>
-					<li>All</li>
-					<li>Second Opinion</li>
-					<li>Articles</li>
-					<li>Events</li>
-					<li>Technology</li>
-				</ul>
-				<div id="searchbar"></div>
-			</nav>
+		<div id="top">		
+			<div class="filtre" id="home">All</div>
+ 			<div class="filtre" id="case">Second Opinion</div>
+			<div class="filtre" id="conf">Articles</div>
+			<div class="filtre" id="event">Events</div>
+			<div class="filtre" id="home">Technology</div>		
 		</div>
+		<form id="recherche">
+			<input class="search" placeholder="&#124;" required>
+			<input type="submit" value="Search">
+		</form>	

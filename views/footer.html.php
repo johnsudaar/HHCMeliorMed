@@ -1,33 +1,30 @@
-	<div id="sidebar">
-		<div id="logo"><h3><span>Melior</span>Med<h3></div>
-		<div id="message">
-			
-			<form action="http://localhost/index.php/Message/postRequest" method="POST">
-				<textarea id="text" name="message"></textarea>
-				
-				<div id="figcaption">
-					<div id="upload">
-						<i>+ add files</i>
-					</div>
-					<button type="submit" class="button">
-						<p>Send</p>
-					</button>
-				</div>
 
-			</form>
-		</div>
-		<div class="contact" id="contact_group">
-			<div class="individuel">
-				<div class="picture"></div>
-				<div class="info">Pauline<div>
+</section>
+<section id="sidebar">	
+	<div id="logo"><h2><span>Melior</span>Med</h2></div>	
+	<div class="contact" id="contact_group">
+		<div class="picture"></div>
+		<div class="info">Pauline</div>
+	</div>
+	
+	<div id="message">
+		<form action="http://localhost/index.php/Message/postRequest" method="POST">
+			<textarea id="text"></textarea>
+			<textarea placeholder="#" id="texttag"></textarea>
+			<div id="figcaption">
+			<input type="submit" value="Send">
+				<div id="upload">
+					<i>+ add files</i>
+				</div>
 			</div>
-			<div class="individuel">
-				<div class="picture"></div>
-				<div class="info">Pauline<div>
-			</div>
-		</div>
+		</form>
 	</div>
 </section>
+<div class="notification">
+	<img src="http://localhost/assets/img/profiles/avatar.png"/>
+	<div class="nomprénom"></div>
+	<div class="msgnotif"></div>
+</div>
 </body>
 <script>
 
