@@ -38,7 +38,9 @@
 					.attr("id",data[i].id)
 					.addClass("individuel")
 					.append(
-						$("<div/>").addClass("picture")
+						$("<div/>").addClass("picture").append(
+							$("<img/>").attr("src","http://localhost/assets/img/"+data[i].photo)
+						)
 					).append( $("<div/>").addClass("info").text(data[i].fonct+" "+data[i].nom+" "+data[i].prenom))
 					.click(function(e){dejaOuvert = true; window.open("http://localhost/index.php/Chat/with/"+e.currentTarget.id,"", "width=500, height=500");})
 				);

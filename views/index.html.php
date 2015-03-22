@@ -7,7 +7,7 @@
 		<div class="time"><p>few minute ago</p></div>	
 		
 		<div class="avatar">
-		<p><?= Reply::countResolutionsByIdUser($post->idUser) ?> cases resolved</p>
+			<img src="http://localhost/assets/img/<?=User::getUserById($post->idUser)->photo?>"/>
 		</div>
 		
 		<div class="actu">
@@ -59,6 +59,7 @@
 			<img src="http://localhost/assets/img/<?=$cur_usr->photo?>"/>
 			<div class="nomprénom"><?=$cur_usr->nom?> <?=$cur_usr->prenom?></div>
 			<div class="msgnotif"><?= $reply->message ?></div>
+			<div class="good"></div>
 		</div>
 
 		<?php } ?>

@@ -41,8 +41,10 @@ class ChatController{
 					$m["message"] = $post->message;
 					if($post->sender == getUser()->id){
 						$m["from"] = getUser()->nom." ".getUser()->prenom;
+						$m["me"] = true;
 					}else{
 						$m["from"] = $him->nom." ".$him->prenom;
+						$m["me"] = false;
 					}
 					$m["id"] = $post->id;
 					$all[] = $m;

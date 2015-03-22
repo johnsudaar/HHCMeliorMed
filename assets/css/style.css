@@ -15,7 +15,7 @@ html {
  
 body {
   margin: 0;
-  background: rgba(227,232,233, .2);
+    background: #fff;
   overflow: hidden;
   height: 1980px;
 }
@@ -57,9 +57,10 @@ h3 {
   color: #6d7070;
 }
  
-p{
+p {
     font-weight: 300;
 }
+ 
 /* Forms
    ========================================================================== */
     
@@ -89,9 +90,9 @@ section {
 #menu {
     width: 10%;
     height: 1980px;
-    background: #fff;
     text-align: center;
     border-right: 2px solid #5ca0d4;
+    background: rgba(227,232,233, .5);
     z-index: 10;
 }
  
@@ -186,13 +187,24 @@ input[type="submit"]:hover  {
     background-color:#fafafa;
 }
  
+input[type="input"]:hover  {
+    cursor: pointer;
+    color:#2dc6d6;
+    background-color:#fafafa;
+}
+ 
+input[type="input"]:hover  {
+    cursor: pointer;
+    color:#2dc6d6;
+    background-color:#fafafa;
+}
+ 
 .filtre {   
     display: inline-block;
     width: 150px;
     padding-top: 20px;
     cursor: pointer;
     color: rgba(0, 0, 0, .5);
-    opacity: .5;
 }
  
 .filtre:hover { 
@@ -226,7 +238,7 @@ input[type="submit"]:hover  {
 }
  
 #tech {
-    background: url('../img/conf.png') no-repeat 50% 0%;
+    background: url('../img/tech.png') no-repeat 50% 0%;
     background-size: 30%;
 }
  
@@ -254,7 +266,7 @@ input[type="submit"]:hover  {
     min-height: 150px;
     margin: 25px auto;
     border: 2px solid #d7dddd;
-    background: #fff;
+    background: rgba(227,232,233, .5);
 }
  
 .panneaux .avatar {
@@ -314,7 +326,7 @@ input[type="submit"]:hover  {
     margin: auto;
     color: rgba(0, 0, 0, .5);
     border: 2px solid #d7dddd;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(227,232,233, .5);
 }
  
 #texttag {
@@ -322,7 +334,7 @@ input[type="submit"]:hover  {
     height: 30px;
     color: rgba(0, 0, 0, .5);
     border: 2px solid #d7dddd;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(227,232,233, .5);
 }
  
 #upload {
@@ -336,9 +348,9 @@ input[type="submit"]:hover  {
 .individuel {
     width: 200px;
     height: 50px;
-    padding
-    background: #aee;
-    margin: 5px auto;
+    padding: 5px;
+    margin: 10px auto;
+    border-bottom: 2px solid #d7dddd;;
     color: rgba(0, 0, 0, .5);
 }
  
@@ -353,8 +365,9 @@ input[type="submit"]:hover  {
     height: 50px;
     float: left;
     display: inline-block;
-    background: url('../img/profiles/avatar.png') no-repeat center;
-    background-size: cover;
+}
+.picture img {
+    width: 50px;
 }
  
 ::-webkit-scrollbar {
@@ -384,7 +397,7 @@ input[type="submit"]:hover  {
     left: 0;
     border-right: 1px solid #5ca0d4;
     border-left: 1px solid #5ca0d4;
-    background: rgba(255, 255, 255, .9);
+    background: rgba(227,232,233, .8);
 }
  
 .modal #pop {
@@ -393,8 +406,8 @@ input[type="submit"]:hover  {
     position: fixed;
     font-size: 10pt;
     color: rgba(0,0,0,.8);
-    background: #e3e8e9;
     border-bottom: 1px solid #5ca0d4;
+    background: rgba(255, 255, 255, .9);
 }
  
 .modal #pop img{
@@ -415,6 +428,10 @@ input[type="submit"]:hover  {
     margin: 20px auto auto 20px;
 }
  
+.popHead img {
+    float: left;}
+ 
+ 
 .demande {
     width: 350px;
     word-wrap: break-word;
@@ -434,10 +451,15 @@ input[type="submit"]:hover  {
 .asker {
     width: 220px;
     border: 2px solid #d7dddd;
-    background: #fff;
+    background: rgba(227,232,233, .8);
     height: 70px;
-    padding-left: 70px;
-    display: inline-block;}
+    padding-left: 10px;
+    display: inline-block;
+}
+ 
+.asker img {
+    float: left !important;
+}
      
  
 .asker p, .asker i {
@@ -446,13 +468,15 @@ input[type="submit"]:hover  {
  
 .notification, .comments {
     width: 300px;
-    top: 10px;
-    right: 0;
-    left: 0;
-    margin-right: auto;
+    min-height: 60px;
+    display: block;
     padding: 2px;
     background: rgba(255, 255, 255, .8);
-    border: 2px solid #d7dddd;
+}
+ 
+.notification, .comments {
+    margin-left: 10px;
+    border-bottom: 1px solid #d7dddd;
 }
  
 .notification {
@@ -476,4 +500,14 @@ input[type="submit"]:hover  {
  
 .afficher-notification {
     display: block !important;
+}
+ 
+.good {
+    width: 20px;
+    height: 20px;
+    background: url('../img/check.png') no-repeat center;
+    background-size: cover;
+    opacity: .5;
+    cursor: pointer;
+    float: right;
 }

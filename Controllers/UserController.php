@@ -50,6 +50,7 @@ class UserController{
 			if($user->id != getUser()->id){
 				$cur["id"] = $user->id;
 				$cur["nom"] = $user->nom;
+				$cur["photo"] = $user->photo;
 				$cur["prenom"] = $user->prenom;
 				$cur["pays"] = $user->pays;
 				$cur["fonct"] = $user->fonction;
