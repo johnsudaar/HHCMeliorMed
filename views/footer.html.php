@@ -21,7 +21,7 @@
 </section>
 
 <div id="notification" class="notification">
-	<img src="http://localhost/assets/img/profiles/avatar.png"/>
+	<img id="imgNotif" src="http://localhost/assets/img/profiles/avatar.png"/>
 	<div id="notificationnom" class="nomprénom"></div>
 	<div id="notificationmessage" class="msgnotif"></div>
 </div>

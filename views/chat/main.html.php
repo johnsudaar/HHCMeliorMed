@@ -7,16 +7,21 @@
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	<!--<div id="title"> <?= $data['him']->nom ?> <?= $data['him']->prenom ?></div>
+	<!--<div id="title"> <?= $data['him']->nom ?> <?= $data['him']->prenom ?></div> -->
 	<section id="messages"> 
 		<?php
-		foreach($data['posts'] as $post){ ?>
-			<div id="<?= $post->id ?>">
+		foreach($data['posts'] as $post){
+			if($post->sender == getUser()->id)
+				$class = "me";
+			else
+				$class = "you";
+			?>
+			<div id="<?= $post->id ?>" class="<?= $class ?>">
 				<?= User::getUserById($post->sender)->nom .' '. User::getUserById($post->sender)->prenom ?> :
 				<?= $post->message ?>
 			</div>
 		<?php } ?>
-	</section>-->
+	</section>
 	<section id="messages"></section>
 <div class="fig">
 <input id="text" class="chatext" type="text" name="input"/>
