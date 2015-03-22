@@ -3,8 +3,6 @@
 <section id="sidebar">	
 	<div id="logo"><h2><span>Melior</span>Med</h2></div>	
 	<div class="contact" id="contact_group">
-		<div class="picture"></div>
-		<div class="info">Pauline</div>
 	</div>
 	
 	<div id="message">
@@ -20,6 +18,7 @@
 		</form>
 	</div>
 </section>
+
 <div id="notification" class="notification">
 	<img src="http://localhost/assets/img/profiles/avatar.png"/>
 	<div id="notificationnom" class="nomprénom"></div>
