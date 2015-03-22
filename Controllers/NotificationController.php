@@ -31,9 +31,18 @@ class NotificationController{
 		$notifications = Notification::getFor($user->id);
 		$notifications = (array) $notifications;
 		foreach($notifications as $notif) {
-			$user = User::getUserById($notif->dest);
+			$user;
+			if($notif->reply == 0) {
+				$req = Request::getById($notif->request);
+				$user = User::getUserById($req->idUser);
+			}
+			else {
+				$rep = Reply::getById($notif->reply);
+				$user = User::getUserById($rep->idUser);
+			}
 			$notif->nom = $user->nom;
 			$notif->prenom = $user->prenom;
+			$notif->photo = $user->photo;
 		}
 		renderJSON($notifications);
 	}
