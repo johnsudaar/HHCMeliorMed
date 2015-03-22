@@ -92,6 +92,7 @@ function checkNotif() {
 		if($('#notificationnom').html().length < 1) {
 			lastNotifId = data[0].id;
 			$('#notification').addClass('afficher-notification');
+			$('#imgNotif').attr('src', 'http://localhost/assets/img/'+data[0].photo+'');
 			$('#notificationnom').append(data[0].nom + ' ' + data[0].prenom);
 			$('#notificationmessage').append(data[0].libelle);
 		}
