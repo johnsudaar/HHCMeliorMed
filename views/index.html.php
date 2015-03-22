@@ -91,7 +91,7 @@ function checkNotif() {
 }
 
 function removeNotif() {
-	$.post(urlRemoveNotif,{id:lastId}, function() {
+	$.post(urlRemoveNotif,{id:lastNotifId}, function() {
 	window.location.href= 'http://localhost/';
 	});
 }

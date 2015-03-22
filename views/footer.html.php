@@ -50,6 +50,9 @@
 		$("#id").click(function(){
 			$.get( "http://localhost/index.php/User/connect", function( data ) {
 				console.log("OK");
+				$("#main_photo").toggleClass("green");
+				$("#main_photo").toggleClass("red");
+
 			});
 		});
 		setInterval(updateUserList,500);
