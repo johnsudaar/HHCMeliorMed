@@ -6,6 +6,8 @@ class Notification{
 	public $reply;
 	public $request;
 	public $libelle;
+	public $nom;
+	public $prenom;
 
 	public function __construct($id,$dest,$reply,$request){
 		$this->id = $id;

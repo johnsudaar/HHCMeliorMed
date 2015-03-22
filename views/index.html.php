@@ -63,7 +63,11 @@
 var userId = <?php echo getUser()->id; ?>;
 var lastId = <?php echo ChatMessage::last(getUser()->id)['lmess']; ?>;
 var dejaOuvert = false;
+var lastNotifId;
+var urlNotif = "http://localhost/index.php/Notification/getInfos/";
 var urlLast = "http://localhost/index.php/Chat/lastMe/";
+var urlRemoveNotif = "http://localhost/index.php/Notification/removeNotif/";
+
 function checkLast() {
 	$.getJSON(urlLast, function(data) {
 		if(data[0].lmess != lastId && !dejaOuvert){
@@ -74,8 +78,34 @@ function checkLast() {
 	});
 }
 
+function checkNotif() {
+	$.getJSON(urlNotif, function(data) {
+		if(!data) return;
+		if($('#notificationnom').html().length < 1) {
+			lastNotifId = data[0].id;
+			$('#notification').addClass('afficher-notification');
+			$('#notificationnom').append(data[0].nom + ' ' + data[0].prenom);
+			$('#notificationmessage').append(data[0].libelle);
+		}
+	});
+}
+
+function removeNotif() {
+	$.post(urlRemoveNotif,{id:lastId}, function() {
+	window.location.href= 'http://localhost/';
+	});
+}
+
 $(document).ready(function() {
 	setInterval(checkLast, 500);
+	setInterval(checkNotif, 500);
+	$('#notification').click(function() {
+		$('#notification').removeClass('afficher-notification');
+		$('#notificationnom').html('');
+		$('#notificationmessage').html('');
+		$('#notification').attr('display', 'none');
+		removeNotif();
+	});
 })
 
 </script>

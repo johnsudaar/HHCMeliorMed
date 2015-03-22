@@ -29,7 +29,13 @@ class NotificationController{
 	public function getInfos() {
 		$user = getUser();
 		$notifications = Notification::getFor($user->id);
-		renderJSON((array) $notifications);
+		$notifications = (array) $notifications;
+		foreach($notifications as $notif) {
+			$user = User::getUserById($notif->dest);
+			$notif->nom = $user->nom;
+			$notif->prenom = $user->prenom;
+		}
+		renderJSON($notifications);
 	}
 }
 

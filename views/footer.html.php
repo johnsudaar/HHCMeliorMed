@@ -20,10 +20,10 @@
 		</form>
 	</div>
 </section>
-<div class="notification">
+<div id="notification" class="notification">
 	<img src="http://localhost/assets/img/profiles/avatar.png"/>
-	<div class="nomprénom"></div>
-	<div class="msgnotif"></div>
+	<div id="notificationnom" class="nomprénom"></div>
+	<div id="notificationmessage" class="msgnotif"></div>
 </div>
 </body>
 <script>
