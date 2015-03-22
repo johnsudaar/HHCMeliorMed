@@ -3,14 +3,13 @@
 <section id="sidebar">	
 	<div id="logo"><h2><span>Melior</span>Med</h2></div>	
 	<div class="contact" id="contact_group">
-		<div class="picture"></div>
-		<div class="info">Pauline</div>
 	</div>
 	
 	<div id="message">
 		<form action="http://localhost/index.php/Message/postRequest" method="POST">
 			<textarea id="text" name="message"></textarea>
 			<textarea placeholder="#" id="texttag"></textarea>
+			<input type="hidden" name="request" value="<?=$post->id?>"/>
 			<div id="figcaption">
 			<input type="submit" value="Send">
 				<div id="upload">
@@ -20,6 +19,7 @@
 		</form>
 	</div>
 </section>
+
 <div id="notification" class="notification">
 	<img src="http://localhost/assets/img/profiles/avatar.png"/>
 	<div id="notificationnom" class="nomprénom"></div>

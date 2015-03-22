@@ -15,7 +15,7 @@ html {
  
 body {
   margin: 0;
-  background: #e3e8e9;
+  background: rgba(227,232,233, .2);
   overflow: hidden;
   height: 1980px;
 }
@@ -99,8 +99,9 @@ section {
     width: 90%;
     min-height: 50px;
     padding-bottom: 10px;
-    text-align: left;
-    margin: 32px auto;
+    text-align: right;
+    margin-top: 32px;
+    margin-right: 5px;
     border-bottom: 2px solid #aee;
     list-style: none;
 }
@@ -109,7 +110,7 @@ section {
     margin-bottom: 5px;
 }
  
-#menu ul li h3:hover {  
+#menu ul li p:hover {   
     color:#2dc6d6;
     cursor: pointer;
 }
@@ -224,6 +225,11 @@ input[type="submit"]:hover  {
     background-size: 30%;
 }
  
+#tech {
+    background: url('../img/conf.png') no-repeat 50% 0%;
+    background-size: 30%;
+}
+ 
 #test {
     width: 100px;
     height: 100px;
@@ -269,6 +275,13 @@ input[type="submit"]:hover  {
     margin-top: 20px;
 }
  
+.panneaux .actu h2 {
+    font-style: 600 ;
+}
+.panneaux .actu p {
+    font-style: 300 ;
+}
+ 
 #sidebar {
     width: 20%;
     height: 100%;`
@@ -276,8 +289,13 @@ input[type="submit"]:hover  {
 }
  
 #sidebar #logo {
-    margin: 20px;
-    text-align: right
+    text-align: center;
+}
+#sidebar #logo h2 {
+    font-size: 2em !important;
+}
+#sidebar #logo p {
+    font-size: .5em !important;
 }
  
 #message {
@@ -317,16 +335,17 @@ input[type="submit"]:hover  {
  
 .individuel {
     width: 200px;
-    height: 150px;
-    margin-top: 50px;
-    display: inline-block;
-    vertical-align: middle;
+    height: 50px;
+    padding
+    background: #aee;
+    margin: 5px auto;
     color: rgba(0, 0, 0, .5);
 }
  
 .contact {
-    margin: 200px auto;
-    width: 100%;
+    margin-top: 50px;
+    width: 90%;
+    margin:atop;
 }
  
 .picture {
@@ -337,7 +356,6 @@ input[type="submit"]:hover  {
     background: url('../img/profiles/avatar.png') no-repeat center;
     background-size: cover;
 }
- 
  
 ::-webkit-scrollbar {
     width: 12px;
@@ -390,10 +408,16 @@ input[type="submit"]:hover  {
     outline: none;
     display: block;
 }
+ 
 .popHead {
     width: 90%;
     height: auto;
     margin: 20px auto auto 20px;
+}
+ 
+.demande {
+    width: 350px;
+    word-wrap: break-word;
 }
 .close {
     float: right;
@@ -413,18 +437,43 @@ input[type="submit"]:hover  {
     background: #fff;
     height: 70px;
     padding-left: 70px;
-    display: inline-block;
-    background:rgba(255,255,255, .5) url('../img/avatar.png') no-repeat 3% 50%;
-    background-size: 20%;
-}
+    display: inline-block;}
+     
  
 .asker p, .asker i {
     font-size: 10pt;
 }
  
+.notification, .comments {
+    width: 300px;
+    top: 10px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    padding: 2px;
+    background: rgba(255, 255, 255, .8);
+    border: 2px solid #d7dddd;
+}
+ 
 .notification {
+    width: 300px;
     display: none;
     top: 10px;
-    right: 10px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 2px;
     position: fixed;
+    background: rgba(255, 255, 255, .8);
+    border: 2px solid #d7dddd;
+}
+ 
+.notification img, .comments img {
+    width: 50px;
+    float: left;
+    display: inline-block;
+}
+ 
+.afficher-notification {
+    display: block !important;
 }

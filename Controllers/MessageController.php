@@ -45,7 +45,7 @@ class MessageController{
 			Notification::addNotif(0, $id_reply);
 			redirect("/");
 		}else{
-			redirect("index.php/Message/testReply");
+			redirect("/");
 		}
 	}
 
