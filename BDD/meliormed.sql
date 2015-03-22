@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 21 Mars 2015 à 22:53
+-- Généré le: Dim 22 Mars 2015 à 12:37
 -- Version du serveur: 5.5.41-0ubuntu0.14.04.1
 -- Version de PHP: 5.5.9-1ubuntu4.7
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `melio`
+-- Base de données: `meliormed`
 --
 
 -- --------------------------------------------------------
@@ -33,17 +33,6 @@ CREATE TABLE IF NOT EXISTS `chatmessage` (
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
-
---
--- Contenu de la table `chatmessage`
---
-
-INSERT INTO `chatmessage` (`id`, `sender`, `dest`, `message`) VALUES
-(1, 1, 2, 'Salut'),
-(2, 2, 1, 'Salut'),
-(3, 1, 2, 'Ca va ?'),
-(4, 1, 2, 'kdmq'),
-(5, 1, 2, 'Bonjour');
 
 -- --------------------------------------------------------
 
@@ -92,17 +81,16 @@ CREATE TABLE IF NOT EXISTS `notif` (
   `reply_id` int(10) NOT NULL,
   `request_id` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `notif`
 --
 
 INSERT INTO `notif` (`id`, `dest`, `reply_id`, `request_id`) VALUES
-(1, 1, 0, 1),
-(2, 2, 0, 1),
-(3, 2, 0, 4),
-(4, 3, 0, 4);
+(5, 5, 0, 1),
+(6, 6, 0, 1),
+(7, 7, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -119,15 +107,6 @@ CREATE TABLE IF NOT EXISTS `reply` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
---
--- Contenu de la table `reply`
---
-
-INSERT INTO `reply` (`id`, `message`, `request`, `resolu`, `idUser`) VALUES
-(1, 'Ok thx', 1, 0, 2),
-(2, '2riz1', 1, 1, 3),
-(3, 'Lol g pa lu', 2, 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -141,16 +120,17 @@ CREATE TABLE IF NOT EXISTS `request` (
   `message` text NOT NULL,
   `type` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `request`
 --
 
 INSERT INTO `request` (`id`, `idUser`, `titre`, `message`, `type`) VALUES
-(1, 1, 'Test', 'Je suis la pour le test', 'pub'),
-(2, 2, 'Test2', 'Je suis aussi la pour le test', 'ann'),
-(3, 3, 'Test3', 'Ah toi aussi ? Moi aussi !', 'requ');
+(4, 7, 'Strange invasive tumor ', 'Liv, 45 years old, has a very invasise pancreas tumor. A surgical operation could be very complicated. Have you already done it ?', 'req'),
+(6, 8, 'Troubles neuros', 'Josiane, 80ans, présente des troubles neurologiques qui n''ont pas d''explication biologique. Je vous envoie tous les examens réalisés. \r\nMerci de votre aide', 'req'),
+(7, 6, 'Malformation cardiaque', 'Carl, 24 ans, malade depuis son enfance présente une malformation cardiaque rare. L''intervention comporte des risques importants.\r\nQu''en pensez-vous ?', 'req'),
+(8, 8, 'Tumeur cutanée', 'Joseph, 60 ans, récidive d''une tumeur cutanée. La seule solution pour nous, c''est l''amputation.\r\nAvez-vous une autre solution ?', 'req');
 
 -- --------------------------------------------------------
 
@@ -174,19 +154,16 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `libelle` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `tag`
 --
 
 INSERT INTO `tag` (`id`, `libelle`) VALUES
-(1, 'Clandestin'),
-(2, 'Cardiologie'),
-(3, 'Métrologie'),
-(4, 'Soleillogie'),
-(5, 'Boudoulogie'),
-(6, 'Mongolie');
+(7, 'Neurosurgery'),
+(8, 'Pediatrics'),
+(9, 'Obstetrics');
 
 -- --------------------------------------------------------
 
@@ -206,16 +183,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `photo` text NOT NULL,
   `connect` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `fonction`, `pays`, `etablissement`, `ville`, `adresse`, `photo`, `connect`) VALUES
-(1, 'HURTER', 'Jonathan', 'Dev', 'France', 'ENSIIE', 'Illkirch', '9 rue des bananes', 'profiles/1.jpeg', 0),
-(2, 'KOBERSI', 'Pauline', 'Dev', 'France', 'ENSIIE', 'Illkirch', '9 rue des bananes', 'profiles/2.jpeg', 0),
-(3, 'MARTIN', 'Anthony', 'Dev', 'France', 'CNAM', 'Strasbourg', '10 rue des patates', 'profiles/3.jpeg', 0);
+(4, 'HOUSE', 'Michael', 'Dr', 'USA', '', '', '', 'profiles/1.png', 0),
+(5, 'TCHAN', 'Peggy', 'Dr', 'China', '', '', '', 'profiles/2.png', 0),
+(6, 'AL-CHOUIRI', 'Ahmad', 'Dr', 'UAE', '', '', '', 'profiles/3.png', 1),
+(7, 'GUSTAVESSON', 'Per', 'Dr', 'Sweden', '', '', '', 'profiles/4.png', 1),
+(8, 'JOHNSON', 'Bruce', 'Dr', 'USA', '', '', '', 'profiles/5.png', 1);
 
 -- --------------------------------------------------------
 
@@ -228,18 +207,6 @@ CREATE TABLE IF NOT EXISTS `userTag` (
   `idTag` int(11) NOT NULL,
   PRIMARY KEY (`idUser`,`idTag`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `userTag`
---
-
-INSERT INTO `userTag` (`idUser`, `idTag`) VALUES
-(1, 1),
-(1, 2),
-(2, 3),
-(2, 4),
-(3, 4),
-(3, 5);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
